@@ -10,7 +10,7 @@ module.exports = function front_matter_plugin(md, cb) {
 
   function frontMatter(state, startLine, endLine, silent) {
     var pos, nextLine, marker_count, markup, token,
-        old_parent, old_line_max,
+        old_parent, old_line_max, start_content,
         auto_closed = false,
         start = state.bMarks[startLine] + state.tShift[startLine],
         max = state.eMarks[startLine];
@@ -24,6 +24,7 @@ module.exports = function front_matter_plugin(md, cb) {
     //
     for (pos = start + 1; pos <= max; pos++) { // while pos <= 3
       if (marker_str[(pos - start) % marker_len] !== state.src[pos]) {
+        start_content = pos + 1
         break;
       }
     }
@@ -103,7 +104,7 @@ module.exports = function front_matter_plugin(md, cb) {
     state.lineMax = old_line_max;
     state.line = nextLine + (auto_closed ? 1 : 0);
 
-    cb(state.src.slice(nextLine + 1, start - 1))
+    cb(state.src.slice(start_content, start - 1))
 
     return true;
   }
