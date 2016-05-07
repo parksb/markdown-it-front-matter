@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-front-matter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Plugin to process front matter container for markdown-it markdown parser",
   "repository": {
     "type": "git",
