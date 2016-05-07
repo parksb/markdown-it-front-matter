@@ -2,7 +2,9 @@
 
 > Plugin for processing front matter for markdown-it markdown parser.
 
-## Valid Front Matter
+[![npm](https://badge.fury.io/js/markdown-it-front-matter.svg)](https://badge.fury.io/js/markdown-it-front-matter)
+
+### Valid Front Matter
 
 Essentially, valid front matter is a fenced block:
 
@@ -22,7 +24,7 @@ valid-front-matter: true
 > (bring your own front matter parser)
 
 
-## Example
+### Example
 
   * Front Matter is not rendered.
   * Any markup inside the block is passed to the **required** callback function.
