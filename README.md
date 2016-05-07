@@ -4,7 +4,7 @@
 
 ## Valid Front Matter
 
-Essentially, valid front matter is a fenced code block:
+Essentially, valid front matter is a fenced block:
 
   * Indicated by **three** or **more** dashes: `---`
   * Opening and closing fences must be the same number of *dash* characters
@@ -18,13 +18,14 @@ valid-front-matter: true
 ```
 
 > The example above uses YAML but YAML is not required
+
 > (bring your own front matter parser)
 
 
 ## Example
 
-  * Nothing is parsed or rendered inside the front matter block.
-  * Any markup inside the block is passed to the required callback function.
+  * Front Matter is not rendered.
+  * Any markup inside the block is passed to the **required** callback function.
 
 ```javascript
 const md = require('markdown-it')()
@@ -32,13 +33,15 @@ const md = require('markdown-it')()
     console.log(fm)
   });
 
-md.parse('---\ntitle: This is the Title\nyo\n---\n# test\n----\ntest');
+let result = md.render('---\ntitle: This is the Title\n---\n# Heading\n----\nsome text');
 
-// logs: `title: This is the Title`
+// > title: This is the Title
 ```
 
 Code heavily borrowed from [markdown-it-container](https://github.com/markdown-it/markdown-it-container)
 
 Thank you:
+
 [puzrin](https://github.com/puzrin)
+
 [rlidwka](https://github.com/rlidwka)
