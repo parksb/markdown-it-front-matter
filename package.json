@@ -1,0 +1,27 @@
+{
+  "name": "markdown-it-front-matter",
+  "version": "0.1.0",
+  "description": "Plugin to process front matter container for markdown-it markdown parser",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/craigdmckenna/markdown-it-front-matter.git"
+  },
+  "main": "index.js",
+  "keywords": [
+    "markdown-it-plugin",
+    "markdown-it",
+    "markdown",
+    "front-matter",
+    "front matter",
+    "frontmatter",
+    "meta",
+    "meta data",
+    "meta-data",
+    "metadata"
+  ],
+  "author": "Craig McKenna",
+  "license": "MIT",
+  "devDependencies": {
+    "markdown-it": "6.0.1"
+  }
+}
