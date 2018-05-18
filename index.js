@@ -95,7 +95,6 @@ module.exports = function front_matter_plugin(md, cb) {
     state.lineMax = nextLine;
 
     token        = state.push('front_matter', null, 0);
-    token.hidden = true;
     token.markup = state.src.slice(startLine, pos)
     token.block  = true;
     token.map    = [ startLine, pos ];
@@ -104,12 +103,11 @@ module.exports = function front_matter_plugin(md, cb) {
     state.lineMax = old_line_max;
     state.line = nextLine + (auto_closed ? 1 : 0);
 
-    cb(state.src.slice(start_content, start - 1))
-
     return true;
   }
 
   md.block.ruler.before('table', 'front_matter', frontMatter, {
     alt: [ 'paragraph', 'reference', 'blockquote', 'list' ]
   });
+  md.renderer.rules['front_matter'] = cb;
 };
