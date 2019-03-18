@@ -22,6 +22,10 @@
   "author": "Craig McKenna",
   "license": "MIT",
   "devDependencies": {
-    "markdown-it": "6.0.1"
+    "markdown-it": "6.0.1",
+    "mocha": "^6.0.2"
+  },
+  "scripts": {
+    "test": "mocha test"
   }
 }
