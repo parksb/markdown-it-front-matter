@@ -6,10 +6,10 @@ module.exports = function front_matter_plugin(md, cb) {
   var min_markers = 3,
       marker_str  = '-',
       marker_char = marker_str.charCodeAt(0),
-      marker_len  = marker_str.length
+      marker_len  = marker_str.length;
 
   function frontMatter(state, startLine, endLine, silent) {
-    var pos, nextLine, marker_count, markup, token,
+    var pos, nextLine, marker_count, token,
         old_parent, old_line_max, start_content,
         auto_closed = false,
         start = state.bMarks[startLine] + state.tShift[startLine],
@@ -24,7 +24,7 @@ module.exports = function front_matter_plugin(md, cb) {
     //
     for (pos = start + 1; pos <= max; pos++) { // while pos <= 3
       if (marker_str[(pos - start) % marker_len] !== state.src[pos]) {
-        start_content = pos + 1
+        start_content = pos + 1;
         break;
       }
     }
@@ -52,6 +52,10 @@ module.exports = function front_matter_plugin(md, cb) {
 
       start = state.bMarks[nextLine] + state.tShift[nextLine];
       max = state.eMarks[nextLine];
+
+      if (state.src.slice(start, max) === '...') {
+        break;
+      }
 
       if (start < max && state.sCount[nextLine] < state.blkIndent) {
         // non-empty line with negative indent should stop the list:
@@ -96,7 +100,7 @@ module.exports = function front_matter_plugin(md, cb) {
 
     token        = state.push('front_matter', null, 0);
     token.hidden = true;
-    token.markup = state.src.slice(startLine, pos)
+    token.markup = state.src.slice(startLine, pos);
     token.block  = true;
     token.map    = [ startLine, pos ];
 
@@ -104,7 +108,7 @@ module.exports = function front_matter_plugin(md, cb) {
     state.lineMax = old_line_max;
     state.line = nextLine + (auto_closed ? 1 : 0);
 
-    cb(state.src.slice(start_content, start - 1))
+    cb(state.src.slice(start_content, start - 1));
 
     return true;
   }
