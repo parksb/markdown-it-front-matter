@@ -99,12 +99,13 @@ module.exports = function front_matter_plugin(md, cb) {
     token.markup = state.src.slice(startLine, pos)
     token.block  = true;
     token.map    = [ startLine, pos ];
+    token.meta   = state.src.slice(start_content, start - 1);
 
     state.parentType = old_parent;
     state.lineMax = old_line_max;
     state.line = nextLine + (auto_closed ? 1 : 0);
 
-    cb(state.src.slice(start_content, start - 1))
+    cb(token.meta);
 
     return true;
   }
