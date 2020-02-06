@@ -57,6 +57,10 @@ module.exports = function front_matter_plugin(md, cb) {
         break;
       }
 
+      if (state.src.slice(start, max) === '...') {
+        break;
+      }
+
       start = state.bMarks[nextLine] + state.tShift[nextLine];
       max = state.eMarks[nextLine];
 
