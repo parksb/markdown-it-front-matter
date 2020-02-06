@@ -35,6 +35,19 @@ describe('Markdown It Front Matter', () => {
     assert.equal(foundFrontmatter, 'x: 1');
   });
 
+  it('should parse until triple dots', () => {
+    assert.equal(
+      md.render([
+        '---',
+        'x: 1',
+        '...',
+        '# Head'
+      ].join('\n')),
+      '\n<h1>Head</h1>\n');
+
+    assert.equal(foundFrontmatter, 'x: 1');
+  });
+
   it('should parse front matter with indentation', () => {
     const frontmatter = [
       'title: Associative arrays',
