@@ -1,6 +1,7 @@
 # markdown-it-front-matter
  
 [![npm](https://badge.fury.io/js/markdown-it-front-matter.svg)](https://badge.fury.io/js/markdown-it-front-matter)
+[![master-ci](https://github.com/ParkSB/markdown-it-front-matter/workflows/master-ci/badge.svg)](https://github.com/ParkSB/markdown-it-front-matter/actions?query=workflow%3Amaster-ci)
 
 > Plugin for processing front matter for markdown-it markdown parser.
 
