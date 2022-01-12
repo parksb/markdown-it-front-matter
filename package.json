@@ -23,7 +23,7 @@
   "author": "ParkSB",
   "license": "MIT",
   "devDependencies": {
-    "markdown-it": "^10.0.0",
+    "markdown-it": "^12.3.2",
     "@types/markdown-it": "^10.0.0",
     "mocha": "^7.0.1"
   },
