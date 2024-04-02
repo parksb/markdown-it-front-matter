@@ -98,7 +98,7 @@ module.exports = function front_matter_plugin(md, cb) {
     token.hidden = true;
     token.markup = state.src.slice(startLine, pos)
     token.block  = true;
-    token.map    = [ startLine, pos ];
+    token.map    = [ startLine, nextLine + (auto_closed ? 1 : 0) ];
 
     state.parentType = old_parent;
     state.lineMax = old_line_max;
