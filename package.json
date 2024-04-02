@@ -1,12 +1,13 @@
 {
   "name": "markdown-it-front-matter",
-  "version": "0.1.2",
+  "version": "0.2.3",
   "description": "Plugin to process front matter container for markdown-it markdown parser",
   "repository": {
     "type": "git",
-    "url": "git://github.com/craigdmckenna/markdown-it-front-matter.git"
+    "url": "git://github.com/ParkSB/markdown-it-front-matter.git"
   },
   "main": "index.js",
+  "types": "index.d.ts",
   "keywords": [
     "markdown-it-plugin",
     "markdown-it",
@@ -19,9 +20,14 @@
     "meta-data",
     "metadata"
   ],
-  "author": "Craig McKenna",
+  "author": "ParkSB",
   "license": "MIT",
   "devDependencies": {
-    "markdown-it": "6.0.1"
+    "markdown-it": "^10.0.0",
+    "@types/markdown-it": "^10.0.0",
+    "mocha": "^7.0.1"
+  },
+  "scripts": {
+    "test": "mocha test"
   }
 }

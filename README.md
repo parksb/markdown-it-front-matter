@@ -1,17 +1,24 @@
 # markdown-it-front-matter
+ 
+[![npm](https://badge.fury.io/js/markdown-it-front-matter.svg)](https://badge.fury.io/js/markdown-it-front-matter)
+[![master-ci](https://github.com/ParkSB/markdown-it-front-matter/workflows/master-ci/badge.svg)](https://github.com/ParkSB/markdown-it-front-matter/actions?query=workflow%3Amaster-ci)
 
 > Plugin for processing front matter for markdown-it markdown parser.
 
-[![npm](https://badge.fury.io/js/markdown-it-front-matter.svg)](https://badge.fury.io/js/markdown-it-front-matter)
+## Install
 
-### Valid Front Matter
+```sh
+$ npm install markdown-it-front-matter --save
+```
+
+## Valid Front Matter
 
 Essentially, valid front matter is a fenced block:
 
-  * Indicated by **three** or **more** dashes: `---`
-  * Opening and closing fences must be the same number of *dash* characters
-  * Opening fence must begin on the first line of the markdown string/file
-  * Opening fence must not be indented
+* Indicated by **three** or **more** dashes: `---`
+* Opening and closing fences must be the same number of *dash* characters
+* Opening fence must begin on the first line of the markdown string/file
+* Opening fence must not be indented
 
 ```yaml
 ---
@@ -24,10 +31,10 @@ valid-front-matter: true
 > (bring your own front matter parser)
 
 
-### Example
+## Example
 
-  * Front Matter is not rendered.
-  * Any markup inside the block is passed to the **required** callback function.
+* Front Matter is not rendered.
+* Any markup inside the block is passed to the **required** callback function.
 
 ```javascript
 const md = require('markdown-it')()
@@ -40,10 +47,13 @@ let result = md.render('---\ntitle: This is the Title\n---\n# Heading\n----\nsom
 // > title: This is the Title
 ```
 
+## References / Thanks
+
 Code heavily borrowed from [markdown-it-container](https://github.com/markdown-it/markdown-it-container)
 
-Thank you:
+* Alex Kocharin [github/rlidwka](https://github.com/rlidwka)
+* Vitaly Puzrin [github/puzrin](https://github.com/puzrin)
 
-[puzrin](https://github.com/puzrin)
+## License
 
-[rlidwka](https://github.com/rlidwka)
+_markdown-it-front-matter_ is distributed under the MIT License - see the [LICENSE](LICENSE) file for details.
