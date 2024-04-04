@@ -107,4 +107,33 @@ describe('Markdown It Front Matter', () => {
 
     assert.equal(foundFrontmatter, 'x: 1\n---');
   });
+
+  it('Should set correct map for front-matter token', () => {
+    {
+      const tokens = md.parse([
+        '----',
+        'x: 1',
+        '---',
+        '# Head'
+      ].join('\n'));
+
+      assert.strictEqual(tokens[0].type, 'front_matter');
+      assert.deepStrictEqual(tokens[0].map, [0, 4]);
+    }
+    {
+      const tokens = md.parse([
+        '----',
+        'title: Associative arrays',
+        'people:',
+        '    name: John Smith',
+        '    age: 33',
+        'morePeople: { name: Grace Jones, age: 21 }',
+        '---',
+        '# Head'
+      ].join('\n'));
+
+      assert.strictEqual(tokens[0].type, 'front_matter');
+      assert.deepStrictEqual(tokens[0].map, [0, 8]);
+    }
+  });
 });
